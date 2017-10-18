@@ -1,0 +1,2 @@
+# mm-mockup
+MagicMirror Mockup
