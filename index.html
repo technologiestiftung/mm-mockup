@@ -1,0 +1,200 @@
+
+<!doctype html>
+<html lang="de" itemscope itemtype="http://schema.org/Article">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>MMirror-Mockup</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="js/logo.css" media="all" rel="stylesheet" />
+        <style type="text/css">
+            
+            body,html{
+                margin: 0;
+                padding: 0;
+                background: #000;
+            }
+
+            #clock{
+                color:#fff;
+                font-size:70px;
+                font-family:Helvetica, Arial, sans-serif;
+                position: absolute;
+                top:0;
+                left:0;
+                padding: 112px 0 0 50px;
+            }
+
+            #logo-container{
+                position: absolute;
+                top:0;
+                right:0;
+            }
+
+            #logo-container > *{
+                float:right;
+            }
+
+            #logo-container img{
+                margin:125px 55px 0 0;
+            }
+
+            #twitter{
+                position: absolute;
+                bottom:0;
+                right:0;
+            }
+
+            #schedule{
+                position: absolute;
+                bottom:0;
+                left:0;
+                width:50%;
+                color:#fff;
+                font-family: Helvetica, Arial, sans-serif;
+                max-height:600px;
+                overflow:hidden;
+                padding: 0 0 0 50px;
+            }
+
+            #schedule ul, #schedule li{
+                list-style: none;
+                margin:0;
+                padding:0;
+            }
+
+            #schedule li{
+                padding-top:30px;
+                clear:both;
+                color:rgba(255,255,255,0.7);
+            }
+
+            #schedule li.current{
+                padding-top:0;
+            }
+
+            .time{
+                float:left;
+                font-weight:bold;
+                font-size:50px;
+                margin-right:20px;
+            }
+
+            .meta{
+                float:left;
+                display: block;
+                width:450px;
+            }
+
+            .title{
+                font-size:30px;
+            }
+
+            .subtitle{
+                font-size:20px;
+            }
+
+            #schedule li.current{
+                color:#fff;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="clock"></div>
+        <div id="logo-container">
+            <img src="img/TSB.png" />
+            <div id="logo"></div>
+        </div>
+
+        <div id="schedule"></div>
+        
+        <div id="twitter">
+            <a class="twitter-timeline"  href="https://twitter.com/hashtag/urbantech" data-widget-id="920913027016413184">#urbantech-Tweets</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script type="text/javascript" src="js/logo.min.js"></script>
+        <script type="text/javascript">
+            var _logo = logo(d3.select('#logo'), 200, 20, 5, false, true, {min:0.2, max:2});
+            
+            var clock = d3.select('#clock');
+            var clock_int = setInterval(updateClock, 1000);
+
+            function updateClock(){
+                var d = new Date();
+                var time = zeroFormat(d.getHours())+':'+zeroFormat(d.getMinutes())+':'+zeroFormat(d.getSeconds());
+                clock.text(time);
+            }
+            updateClock();
+
+            function zeroFormat(t){
+                if(t<10){
+                    return '0'+t;
+                }else{
+                    return t;
+                }
+            }
+
+            var schedule_data = [
+                {time: [7,0], title: 'WELCOME LOUNGE FÜR RED-EYE-FLIEGER UND FRÜHE VÖGEL'},
+                {time: [9,0], title: 'BEGRÜSSUNG'},
+                {time: [9,15], title: 'KEYNOTE', subtitle:'Michael Müller, Regierender Bürgermeister von Berlin'},
+                {time: [9,45], title: 'ERÖFFNUNGSPANEL: ROADMAP SMART CITIES', subtitle:'Ger Baron, Amsterdam Smart City, Chief Technology Officer<br />Dr. Philipp Bouteiller, Tegel Projekt GmbH, Geschäftsführer<br />Philipp Rode, London School of Economics, Executive Director LSE Cities'},
+                {time: [11,0], title: 'KAFFEEPAUSE / GESPRÄCHE / ZUKUNFTSLOUNGE'},
+                {time: [11,15], title: 'KEYNOTE: THE BIG PICTURE', subtitle:'Assaf Biderman, Associate Director des MIT Senseable City Labs und Gründer & CEO von Superpedestrian'},
+                {time: [12,0], title: 'VISIONTALK', subtitle:'Mario Husten, Das Eckwerk, Vorstand<br />Till Nadolny, Solmove GmbH, CTO/COO<br />Heinrich Strößenreuther, Agentur für clevere Städte, CEO'},
+                {time: [12,30], title: 'LUNCH / GESPRÄCHE / ZUKUNFTSLOUNGE'},
+                {time: [13,30], title: 'PANEL: SMART CITY CULTURE', subtitle:'Francesca Bria, Barcelona City Council, Chief Technology and Digital Innovation Officer<br />Toby Shapshak, Stuff Magazine, Chefredakteur<br />Prof. Elke Pahl-Weber, Technische Universität Berlin, Fachgebietsleiterin Institut für Stadt- und Regionalplanung'},
+                {time: [14,45], title: 'SHOWCASES', subtitle:'Dénes Honus, Green City Solutions, CEO<br />Maxim Nohroudi, Door2Door GmbH, Managing Director und Co-Gründer<br />Daniel Bücher, RWTH Aachen, Projektleiter, Adidas Knit For You'},
+                {time: [15,30], title: 'PAUSE / GESPRÄCHE / ZUKUNFTSLOUNGE'},
+                {time: [15,45], title: 'PANEL: INTEGRATED SMART PRODUCTION', subtitle:'Christian Rickerts, Staatssekretär, Senat für Wirtschaft, Energie und Betriebe<br />Stefanie Brickwede, Deutsche Bahn, Projektleiterin 3D Druck<br />René Gurka, BigRep GmbH, CEO<br />Thomas Kujawski, Berliner Wasserbetriebe, IT-Kundenberatung und Projekte<br />Lukas Olbrich, Sablono GmbH, CEO'},
+                {time: [16,45], title: 'ABSCHLUSSKEYNOTE: URBAN TECHNOLOGIES 2030'},
+                {time: [17,0], title: 'ENDE DES KONGRESSES'}
+            ];
+
+            var schedule = d3.select('#schedule').append('ul').selectAll('li').data(schedule_data).enter().append('li');
+            var schedule_int = setInterval(updateSchedule, 60000);
+
+            function updateSchedule(){
+                var current = 0, found = false;
+                schedule_data.forEach(function(d,i){
+                    if(!found){
+                        var cd = new Date();
+                        if(d.time[0] > cd.getHours()){
+                            found = true;
+                            current = i-1;
+                        }else if(d.time[0] == cd.getHours()){
+                            if(d.time[1] >= cd.getMinutes()){
+                                found = true;
+                                current = i-1;
+                            }
+                        }
+                    }
+                });
+                if(current<0){current=0;}
+                schedule.data(schedule_data.filter(function(d,i){ return (i>=current)?true:false; }));
+                schedule.exit().remove();
+                schedule.enter().append('li');
+
+                schedule
+                    .attr('class', function(d,i){ return (i==0)?'current':'';})    
+                    .html(function(d){
+                        var r = '<span class="time">'+zeroFormat(d.time[0])+':'+zeroFormat(d.time[1])+'</span>';
+                        r += '<span class="meta"><span class="title">'+d.title+'</span><br />';
+                        if('subtitle' in d){
+                            r += '<span class="subtitle">'+d.subtitle+'</span>';
+                        }
+                        r += '</span>';
+                        return r;
+                    });
+
+            }
+
+            updateSchedule();
+
+        </script>
+    </body>
+</html>
