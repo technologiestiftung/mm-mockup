@@ -18,12 +18,12 @@
 
             #clock{
                 color:#fff;
-                font-size:70px;
+                font-size:60px;
                 font-family:Helvetica, Arial, sans-serif;
                 position: absolute;
                 top:0;
                 left:0;
-                padding: 112px 0 0 50px;
+                padding: 62px 0 0 50px;
             }
 
             #logo-container{
@@ -37,7 +37,9 @@
             }
 
             #logo-container img{
-                margin:125px 55px 0 0;
+                margin:75px 55px 0 0;
+                width:200px;
+                height:auto;
             }
 
             #twitter{
@@ -99,6 +101,18 @@
                 color:#fff;
             }
 
+            iframe{
+                overflow:hidden;
+            }
+
+            ::-webkit-scrollbar              { width:0px; fill:transparent; background-color:transparent; }
+            ::-webkit-scrollbar-button       { width:0px; fill:transparent; background-color:transparent; }
+            ::-webkit-scrollbar-track        { width:0px; fill:transparent; background-color:transparent; }
+            ::-webkit-scrollbar-track-piece  { width:0px; fill:transparent; background-color:transparent; }
+            ::-webkit-scrollbar-thumb        { width:0px; fill:transparent; background-color:transparent; }
+            ::-webkit-scrollbar-corner       { width:0px; fill:transparent; background-color:transparent; }
+            ::-webkit-resizer                { width:0px; fill:transparent; background-color:transparent; }
+
         </style>
     </head>
     <body>
@@ -118,7 +132,7 @@
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script type="text/javascript" src="js/logo.min.js"></script>
         <script type="text/javascript">
-            var _logo = logo(d3.select('#logo'), 200, 20, 5, false, true, {min:0.2, max:2});
+            var _logo = logo(d3.select('#logo'), 100, 20, 5, false, true, {min:0.2, max:2});
             
             var clock = d3.select('#clock');
             var clock_int = setInterval(updateClock, 1000);
