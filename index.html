@@ -17,7 +17,7 @@
             }
 
             #clock{
-                color:#ffe;
+                color:#fff;
                 font-size:60px;
                 font-family:Helvetica, Arial, sans-serif;
                 position: absolute;
@@ -118,17 +118,17 @@
 
             #map{
                 position: absolute;
-                left:50%;
-                margin-left:-212.5px;
-                top:400px;
+                left:30%;
+                margin-left:-250px;
+                top:600px;
             }
 
             #map-legend{
                 color:#fff;
                 position: absolute;
-                top:400px;
-                left:50%;
-                margin-left:60px;
+                top:480px;
+                left:30%;
+                margin-left:-190px;
                 font-family: Helvetica, Arial, sans-serif;
             }
 
@@ -173,11 +173,12 @@
             </ul>
         </div>
 
-        <div id="schedule"></div>
+        <!--div id="schedule"></div -->
         
         <div id="twitter">
-            <a class="twitter-timeline" data-height="450" href="https://twitter.com/hashtag/urbantech" data-widget-id="920913027016413184">#urbantech-Tweets</a>
+            <a class="twitter-timeline"  href="https://twitter.com/search?q=%40tsbberlin" data-widget-id="920607996966817792">Tweets über @tsbberlin </a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          
         </div>
 
         <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -202,7 +203,7 @@
                     return t;
                 }
             }
-
+/*
             var schedule_data = [
                 {time: [7,0], title: 'WELCOME LOUNGE FÜR RED-EYE-FLIEGER UND FRÜHE VÖGEL'},
                 {time: [9,0], title: 'BEGRÜSSUNG'},
@@ -259,7 +260,7 @@
             }
 
             updateSchedule();
-
+            */
             var data = [{geo:[52.542936, 13.349273], state:'grau', value:'010'},
                 {geo:[52.485814, 13.348775], state:'grau', value:'018'},
                 {geo:[52.398406, 13.368103], state:'gruen', value:'027'},
